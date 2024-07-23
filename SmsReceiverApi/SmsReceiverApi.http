@@ -1,0 +1,6 @@
+@SmsReceiverApi_HostAddress = http://localhost:5223
+
+GET {{SmsReceiverApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
