@@ -18,7 +18,7 @@ public class SmsReceiverController : ControllerBase
         // Replace with your Event Grid Topic endpoint and key
         _eventGridClient = new EventGridPublisherClient(
             new Uri("<YOUR_EVENT_GRID_TOPIC_ENDPOINT>"),
-            new AzureKeyCredential("<YOUR_EVENT_GRID_TOPIC_KEY>")
+            new Azure.AzureKeyCredential("<YOUR_EVENT_GRID_TOPIC_KEY>")
         );
     }
 
@@ -27,7 +27,7 @@ public class SmsReceiverController : ControllerBase
     {
         if (eventGridEvent.EventType == EventGridEventTypes.SmsReceivedEventData)
         {
-            var smsReceivedEventData = eventGridEvent.Data.ToObjectFromJson<SmsReceivedEventData>();
+            var smsReceivedEventData = eventGridEvent.Data.ToObjectFromJson<AcsSmsReceivedEventData>();
             Console.WriteLine($"Received SMS from: {smsReceivedEventData.From}");
             Console.WriteLine($"Message: {smsReceivedEventData.Message}");
         }
