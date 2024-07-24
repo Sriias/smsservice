@@ -12,13 +12,13 @@ public class SmsReceiverController : ControllerBase
 
     public SmsReceiverController()
     {
-        string connectionString = "<YOUR_CONNECTION_STRING>";
+        string connectionString = "endpoint=https://communicationz.unitedstates.communication.azure.com/;accesskey=2wyhil3hEwzoJMzsHC55ep2OnVyOeFyUr8pEQL9CY4yNuIVRvMJuJQQJ99AGACULyCpDv9Z9AAAAAZCSx18O";
         _smsClient = new SmsClient(connectionString);
 
         // Replace with your Event Grid Topic endpoint and key
         _eventGridClient = new EventGridPublisherClient(
-            new Uri("<YOUR_EVENT_GRID_TOPIC_ENDPOINT>"),
-            new Azure.AzureKeyCredential("<YOUR_EVENT_GRID_TOPIC_KEY>")
+            new Uri("https://codereceiver.eastus-1.eventgrid.azure.net/api/events"),
+            new Azure.AzureKeyCredential("n57P+vFUYgik6ds8ojpr7SjXEH/poG054AZEGIll6ck=")
         );
     }
 
